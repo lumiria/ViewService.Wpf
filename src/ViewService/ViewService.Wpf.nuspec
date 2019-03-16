@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ViewService.Wpf</id>
+    <version>0.1.0</version>
+    <authors>lumiria</authors>
+    <owners>lumiria</owners>
+    <projectUrl>https://github.com/lumiria/ViewService.Wpf</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <description>This provides a service for accessing View from ViewModel.</description>
+    <copyright>© 2019 lumiria</copyright>
+    <tags>wpf, mvvm, service</tags>
+    <dependencies>
+      <group targetFramework="net45" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\ViewService.wpf.dll" target="lib\net45\ViewService.Wpf.dll" />
+  </files>
+</package>
