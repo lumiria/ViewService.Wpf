@@ -54,6 +54,7 @@
     <Compile Include="IWindowService.cs" />
     <Compile Include="MessageBoxService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewService.cs" />
     <Compile Include="ViewServiceProvider.cs" />
     <Compile Include="WindowActionService.cs" />
     <Compile Include="WindowService.cs" />

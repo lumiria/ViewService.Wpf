@@ -11,6 +11,6 @@
         /// <typeparam name="T">The type of the service object.</typeparam>
         /// <param name="key">The key that identifies the service object.</param>
         /// <returns>A service object of type T.</returns>
-        T Get<T>(string key=null) where T : IViewService;
+        T Get<T>(string key=null) where T : class, IViewService;
     }
 }

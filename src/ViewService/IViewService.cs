@@ -5,9 +5,5 @@
     /// </summary>
     public interface IViewService
     {
-        /// <summary>
-        /// Gets the key uniquely identifying this service.
-        /// </summary>
-        string Key { get; }
     }
 }

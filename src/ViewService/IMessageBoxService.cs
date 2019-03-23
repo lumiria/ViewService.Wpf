@@ -7,7 +7,6 @@ namespace Lumiria.ViewServices
     /// </summary>
     public interface IMessageBoxService : IViewService
     {
-
         /// <summary>
         /// Displays a message box that has a message and that returns a result.
         /// </summary>

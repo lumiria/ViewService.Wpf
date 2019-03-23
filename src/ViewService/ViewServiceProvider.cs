@@ -17,24 +17,24 @@ namespace Lumiria.ViewServices
         /// </summary>
         public ViewServiceProvider()
         {
-            Services = new FreezableCollection<Freezable>();
+            Services = new FreezableCollection<ViewService>();
         }
 
         /// <summary>
         /// Gets the collection of services.
         /// </summary>
-        public FreezableCollection<Freezable> Services
+        public FreezableCollection<ViewService> Services
         {
-            get => (FreezableCollection<Freezable>)GetValue(ServicesProperty);
+            get => (FreezableCollection<ViewService>)GetValue(ServicesProperty);
             private set => SetValue(ServicesPropertyKey, value);
         }
         private static readonly DependencyPropertyKey ServicesPropertyKey =
-            DependencyProperty.RegisterReadOnly("Services", typeof(FreezableCollection<Freezable>), typeof(ViewServiceProvider), new PropertyMetadata(null));
+            DependencyProperty.RegisterReadOnly("Services", typeof(FreezableCollection<ViewService>), typeof(ViewServiceProvider), new PropertyMetadata(null));
         /// <summary>Services Dependency Property</summary>
         public static readonly DependencyProperty ServicesProperty =
             ServicesPropertyKey.DependencyProperty;
 
-
+        
         /// <summary>
         /// Gets the service object of the specified type.
         /// </summary>
@@ -43,7 +43,8 @@ namespace Lumiria.ViewServices
         /// <returns>A service object of type T.</returns>
         T IViewServiceProvider.Get<T>(string key)
         {
-            var service = Services.OfType<T>()
+            var service = Services
+                .Where(x => typeof(T).IsAssignableFrom(x.ServiceType))
                 .FirstOrDefault(x => x.Key == key);
 
             if (service == null)
@@ -51,7 +52,7 @@ namespace Lumiria.ViewServices
                 throw new ArgumentException("The key does not exist in the view services.");
             }
 
-            return service;
+            return service.GetServiceImpl() as T;
         }
 
         protected override Freezable CreateInstanceCore() =>
