@@ -52,7 +52,7 @@ namespace Lumiria.ViewServices
                 throw new ArgumentException("The key does not exist in the view services.");
             }
 
-            return service.GetServiceImpl() as T;
+            return service.GetService() as T;
         }
 
         protected override Freezable CreateInstanceCore() =>

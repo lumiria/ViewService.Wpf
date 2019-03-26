@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>ViewService.Wpf</id>
-    <version>0.2.0</version>
+    <version>1.0.0</version>
     <authors>lumiria</authors>
     <owners>lumiria</owners>
     <projectUrl>https://github.com/lumiria/ViewService.Wpf</projectUrl>

@@ -27,7 +27,7 @@ namespace Lumiria.ViewServices
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(WindowService), new PropertyMetadata(null));
 
-        public override IViewService GetServiceImpl() =>
+        public override IViewService GetService() =>
             _serviceImpl ?? (_serviceImpl = new WindowServiceImpl(this));
 
         protected override Freezable CreateInstanceCore() =>

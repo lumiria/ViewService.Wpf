@@ -21,7 +21,7 @@ namespace Lumiria.ViewServices
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(MessageBoxService), new PropertyMetadata(null));
 
-        public override IViewService GetServiceImpl() =>
+        public override IViewService GetService() =>
             _serviceImpl ?? (_serviceImpl = new MessageBoxServiceImpl(this));
 
         protected override Freezable CreateInstanceCore() =>
