@@ -11,7 +11,6 @@ namespace Lumiria.ViewServices
         /// Opens a window and resturns without waiting for the newly opened window to close.
         /// </summary>
         void Show();
-
         /// <summary>
         /// Opens a window and resturns without waiting for the newly opened window to close.
         /// </summary>

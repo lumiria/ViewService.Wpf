@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using System.Windows;
 
 namespace Lumiria.ViewServices
@@ -30,12 +28,12 @@ namespace Lumiria.ViewServices
         /// <summary>
         /// Gets or sets the key uniquely identifying this service.
         /// </summary>
-        public string? Key { get; set; }
+        public string Key { get; set; }
 
         /// <summary>
         /// Returns the service entity.
         /// </summary>
         /// <returns>A service object.</returns>
-        internal abstract IViewService GetService();
+        public abstract IViewService GetService();
     }
 }

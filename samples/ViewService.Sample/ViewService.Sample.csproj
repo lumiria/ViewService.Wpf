@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\ViewService\ViewService.csproj">
-      <Project>{236f8dcf-1f5c-4c6f-b7dd-a59028c6b9ba}</Project>
+      <Project>{f7c7aae2-89ce-433b-9b6c-751ea3b9e88c}</Project>
       <Name>ViewService</Name>
     </ProjectReference>
   </ItemGroup>

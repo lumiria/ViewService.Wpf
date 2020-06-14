@@ -6,7 +6,7 @@ namespace Lumiria.ViewServices
     /// <summary>
     /// Represents a view service for displaying a window.
     /// </summary>
-    public sealed class WindowService : ViewService<IWindowService>
+    public class WindowService : ViewService<IWindowService>
     {
         private IWindowService _serviceImpl;
 
@@ -27,8 +27,8 @@ namespace Lumiria.ViewServices
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(WindowService), new PropertyMetadata(null));
 
-        internal override IViewService GetService() =>
-            _serviceImpl ??= new WindowServiceImpl(this);
+        public override IViewService GetService() =>
+            _serviceImpl ?? (_serviceImpl = new WindowServiceImpl(this));
 
         protected override Freezable CreateInstanceCore() =>
             new WindowService();
@@ -46,10 +46,10 @@ namespace Lumiria.ViewServices
                 _parent = parent;
             }
 
-            /// <summary>
-            /// Gets or sets the key uniquely identifying this service.
-            /// </summary>
-            public string Key { get; set; }
+            ///// <summary>
+            ///// Gets or sets the key uniquely identifying this service.
+            ///// </summary>
+            //public string Key { get; set; }
 
             /// <summary>
             /// Opens a window and resturns without waiting for the newly opened window to close.
@@ -104,7 +104,8 @@ namespace Lumiria.ViewServices
 
             private Window CreateWindow()
             {
-                if (!(Activator.CreateInstance(_parent.WindowType) is Window window))
+                var window = Activator.CreateInstance(_parent.WindowType) as Window;
+                if (window == null)
                 {
                     throw new InvalidOperationException($"{_parent.WindowType} is not a valid window type.");
                 }

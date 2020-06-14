@@ -14,15 +14,15 @@ namespace Lumiria.ViewServices
         /// </summary>
         public Window Target
         {
-            get => (Window)GetValue(TargetProperty);
-            set => SetValue(TargetProperty, value);
+            get { return (Window)GetValue(TargetProperty); }
+            set { SetValue(TargetProperty, value); }
         }
         /// <summary>Target Dependency Property</summary>
         public static readonly DependencyProperty TargetProperty =
             DependencyProperty.Register("Target", typeof(Window), typeof(WindowActionService), new PropertyMetadata(null));
 
-        internal override IViewService GetService() =>
-            _serviceImpl ??= new WindowActionServiceImpl(this);
+        public override IViewService GetService() =>
+            _serviceImpl ?? (_serviceImpl = new WindowActionServiceImpl(this));
 
         protected override Freezable CreateInstanceCore() =>
             new WindowActionService();
