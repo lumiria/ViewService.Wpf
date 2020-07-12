@@ -14,7 +14,7 @@ namespace Lumiria.ViewServices.View
             _owner = owner;
         }
 
-        public (bool result, string fileName, string[] fileNames) ShowDialog(
+        public (bool result, string fileName) ShowDialog(
             string? initialDirectory = null,
             string? fileName = null,
             string? filter = null,
@@ -48,7 +48,7 @@ namespace Lumiria.ViewServices.View
                 ? dialog.ShowDialog()
                 : dialog.ShowDialog(_owner);
 
-            return (result ?? false, dialog.FileName, dialog.FileNames);
+            return (result ?? false, dialog.FileName);
         }
 
         private SaveFileDialog CreateDialog(

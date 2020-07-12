@@ -24,7 +24,7 @@ namespace Lumiria.ViewServices
         /// <param name="overwritePrompt">A value indicating whether a file dialog displays a warning if the user specifies the name of a file that already exists.</param>
         /// <param name="validateNames">A value indicating whether the dialog accepts only valid Win32 file names.</param>
         /// <returns>If the user clicks the OK button of the dialog that is displayed, true is returned; otherwise, false.</returns>
-        public (bool result, string fileName, string[] fileNames) ShowDialog(
+        public (bool result, string fileName) ShowDialog(
             string? initialDirectory = null,
             string? fileName = null,
             string? filter = null,

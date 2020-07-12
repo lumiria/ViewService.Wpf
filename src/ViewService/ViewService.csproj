@@ -15,7 +15,7 @@
     <Version>1.1.0</Version>
     <PackageId>ViewService.Wpf</PackageId>
     <Product>ViewService.Wpf</Product>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

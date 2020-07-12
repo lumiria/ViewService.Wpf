@@ -60,7 +60,7 @@ namespace Sample.ViewModel
             _saveFileCommand ?? (_saveFileCommand = new RelayCommand(
                 () =>
                 {
-                    var (result, fileName, _) = SaveFileDialogService.ShowDialog(
+                    var (result, fileName) = SaveFileDialogService.ShowDialog(
                         filter: "Text file|*.txt|All Files|*.*",
                         filterIndex: 0
                         );

@@ -20,6 +20,7 @@ namespace Lumiria.ViewServices
         /// <param name="checkFileExists">A value indicating wheter a file dialog displayes a warning if the use specifies a file name that does not exist.</param>
         /// <param name="checkPathExists">A value that specified whether warnings are displayed if the user types invalid paths and file names.</param>
         /// <param name="dereferenceLinks">A value indicating whether a file dialog returns either the location of the file referenced by a shortcut or the location of the shorcut file (.lnk).</param>
+        /// <param name="multiSelect">an option indicating whether a file dialog allows users to select multiple files.</param>
         /// <param name="readOnlyChecked">A value indicating whether the read-only check box displayed by a file dialog is selected.</param>
         /// <param name="showReadOnly">A value indicating whether a file dialog contains a read-onlu check box.</param>
         /// <param name="validateNames">A value indicating whether the dialog accepts only valid Win32 file names.</param>
@@ -35,6 +36,7 @@ namespace Lumiria.ViewServices
             bool? checkFileExists = null,
             bool? checkPathExists = null,
             bool? dereferenceLinks = null,
+            bool? multiselect = null,
             bool? readOnlyChecked = null,
             bool? showReadOnly = null,
             bool? validateNames = null);
