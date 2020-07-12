@@ -5,27 +5,27 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 
-namespace Lumiria.ViewServices
+namespace Lumiria.ViewServices.View.Xaml
 {
     /// <summary>
     /// Represents a mechanism for retrieving a service object for the view.
     /// </summary>
     [ContentProperty(nameof(Services))]
     public sealed class ViewServiceProvider : Freezable
-        , IViewServiceProvider
+        , IViewServiceContainer
     {
         /// <summary>
         /// Initializes a new insrtance of the <see cref="ViewServiceProvider"/> class.
         /// </summary>
         public ViewServiceProvider()
         {
-            Services = new FreezableCollection<ViewService>();
+            Services = new FreezableCollection<FreezableViewService>();
         }
 
-        //public ViewServiceProvider(Window owner)
-        //{
-        //    Owner = owner;
-        //}
+        public ViewServiceProvider(Window owner)
+        {
+            Owner = owner;
+        }
 
         /// <summary>
         /// Gets or sets the <see cref="Window"/> that owns this.
@@ -43,13 +43,13 @@ namespace Lumiria.ViewServices
         /// <summary>
         /// Gets the collection of services.
         /// </summary>
-        public FreezableCollection<ViewService> Services
+        public FreezableCollection<FreezableViewService> Services
         {
-            get => (FreezableCollection<ViewService>)GetValue(ServicesProperty);
+            get => (FreezableCollection<FreezableViewService>)GetValue(ServicesProperty);
             private set => SetValue(ServicesPropertyKey, value);
         }
         private static readonly DependencyPropertyKey ServicesPropertyKey =
-            DependencyProperty.RegisterReadOnly("Services", typeof(FreezableCollection<ViewService>), typeof(ViewServiceProvider), new PropertyMetadata(null));
+            DependencyProperty.RegisterReadOnly("Services", typeof(FreezableCollection<FreezableViewService>), typeof(ViewServiceProvider), new PropertyMetadata(null));
         /// <summary>Services Dependency Property</summary>
         public static readonly DependencyProperty ServicesProperty =
             ServicesPropertyKey.DependencyProperty;
@@ -75,7 +75,13 @@ namespace Lumiria.ViewServices
             return (T)service.GetService();
         }
 
+        void IViewServiceContainer.AddService<T>(Func<T> serviceFactory, string? key)
+        {
+            Services.Add(new AnonymousViewService<T>(serviceFactory, key));
+        }
+
         protected override Freezable CreateInstanceCore() =>
             new ViewServiceProvider();
+
     }
 }

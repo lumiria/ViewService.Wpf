@@ -1,41 +1,22 @@
 ﻿#nullable enable
 
 using System;
-using System.Windows;
+using Lumiria.ViewServices.View.Xaml;
 
 namespace Lumiria.ViewServices
 {
-    /// <summary>
-    /// Base class for services defined in views.
-    /// </summary>
-    public abstract class ViewService<T> : ViewService
-        where T : class, IViewService
+    public static class ViewService
     {
-        /// <summary>
-        /// Gets the type of service.
-        /// </summary>
-        public override Type ServiceType => typeof(T);
-    }
+        public static IViewServiceProvider CreateProvider() =>
+            new ViewServiceProvider();
 
-    /// <summary>
-    /// Base class for services defined in views.
-    /// </summary>
-    public abstract class ViewService : Freezable
-    {
-        /// <summary>
-        /// Gets the type of service.
-        /// </summary>
-        public abstract Type ServiceType { get; }
+        public static void AddService<T>(IViewServiceProvider provider, Func<T> serviceFactory, string? key=null)
+            where T : IViewService
+        {
+            var container = provider as IViewServiceContainer;
+            if (container == null) throw new InvalidCastException();
 
-        /// <summary>
-        /// Gets or sets the key uniquely identifying this service.
-        /// </summary>
-        public string? Key { get; set; }
-
-        /// <summary>
-        /// Returns the service entity.
-        /// </summary>
-        /// <returns>A service object.</returns>
-        internal abstract IViewService GetService();
+            container.AddService<T>(serviceFactory, key);
+        }
     }
 }

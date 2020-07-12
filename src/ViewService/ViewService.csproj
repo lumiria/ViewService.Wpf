@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net45</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
     <Authors>lumiria</Authors>
@@ -11,6 +11,19 @@
     <PackageProjectUrl>https://github.com/lumiria/ViewService.Wpf</PackageProjectUrl>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>1.1.0.0</FileVersion>
+    <RootNamespace>Lumiria.ViewServices</RootNamespace>
+    <Version>1.1.0</Version>
+    <PackageId>ViewService.Wpf</PackageId>
+    <Product>ViewService.Wpf</Product>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="View\Components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
 
 </Project>

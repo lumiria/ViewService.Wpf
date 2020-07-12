@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ViewService.Sample.View
+namespace Sample.View
 {
     /// <summary>
     /// SubWindow.xaml の相互作用ロジック

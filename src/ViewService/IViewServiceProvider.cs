@@ -14,5 +14,6 @@ namespace Lumiria.ViewServices
         /// <param name="key">The key that identifies the service object.</param>
         /// <returns>A service object of type T.</returns>
         T Get<T>(string? key=null) where T : class, IViewService;
+
     }
 }

@@ -1,7 +1,7 @@
-﻿<Application x:Class="ViewService.Sample.App"
+﻿<Application x:Class="Sample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ViewService.Sample"
+             xmlns:local="clr-namespace:Sample"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
          

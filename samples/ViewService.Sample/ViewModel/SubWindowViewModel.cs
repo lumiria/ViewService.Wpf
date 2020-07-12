@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Lumiria.ViewServices;
 
-namespace ViewService.Sample.ViewModel
+namespace Sample.ViewModel
 {
     public sealed class SubWindowViewModel : INotifyPropertyChanged
     {

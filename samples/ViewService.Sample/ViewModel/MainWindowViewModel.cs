@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Lumiria.ViewServices;
 
-namespace ViewService.Sample.ViewModel
+namespace Sample.ViewModel
 {
     public sealed class MainWindowViewModel : INotifyPropertyChanged
     {
@@ -23,6 +23,16 @@ namespace ViewService.Sample.ViewModel
                 {
                     var messageBoxService = provider.Get<IMessageBoxService>();
                     messageBoxService.Show("Hello");
+                },
+                _ => true));
+
+        private RelayCommand<IViewServiceProvider> _codeBehindWindowCommand;
+        public ICommand CodeBehindWindowCommand =>
+            _codeBehindWindowCommand ?? (_codeBehindWindowCommand = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var windowService = provider.Get<IWindowService>("CodeBehind");
+                    windowService.ShowDialog();
                 },
                 _ => true));
 
