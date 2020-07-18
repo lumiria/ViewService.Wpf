@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sample.Model
 {
@@ -22,6 +18,13 @@ namespace Sample.Model
         {
             get => _inputFile;
             set => Set(ref _inputFile, value);
+        }
+
+        private string _outputFolder;
+        public string OutputFolder
+        {
+            get => _outputFolder;
+            set => Set(ref _outputFolder, value);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

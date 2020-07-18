@@ -39,6 +39,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0">Name</Label>
@@ -52,7 +53,13 @@
             <Button Command="{Binding OpenFileCommand}">...</Button>
         </DockPanel>
 
-        <StackPanel Grid.Row="2"
+        <Label Grid.Row="2" Grid.Column="0">Output Foldere</Label>
+        <DockPanel Grid.Row="2" Grid.Column="1">
+            <TextBox Text="{Binding OutputFolder}" />
+            <Button Command="{Binding BrowseFolderCommand}">...</Button>
+        </DockPanel>
+
+        <StackPanel Grid.Row="3"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">

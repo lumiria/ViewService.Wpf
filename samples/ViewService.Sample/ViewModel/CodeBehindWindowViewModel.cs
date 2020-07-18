@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using Lumiria.ViewServices;
+using Lumiria.ViewServices.View.Components;
 using Sample.Model;
 
 namespace Sample.ViewModel
@@ -28,6 +29,12 @@ namespace Sample.ViewModel
             set => _model.InputFile = value;
         }
 
+        public string OutputFolder
+        {
+            get => _model.OutputFolder;
+            set => _model.OutputFolder = value;
+        }
+
         private IWindowActionService WindowActionService =>
             ViewServiceProvider.Get<IWindowActionService>();
 
@@ -39,6 +46,9 @@ namespace Sample.ViewModel
 
         private ISaveFileDialogService SaveFileDialogService =>
             ViewServiceProvider.Get<ISaveFileDialogService>();
+
+        private IFolderBrowserDialogService FolderBrowserDialogService =>
+            ViewServiceProvider.Get<IFolderBrowserDialogService>();
 
         private RelayCommand _openFileCommand;
         public ICommand OpenFileCommand =>
@@ -67,6 +77,19 @@ namespace Sample.ViewModel
                     if (result)
                     {
                         _model.Save(fileName);
+                    }
+                }));
+
+        private RelayCommand _browseFolderCommand;
+        public ICommand BrowseFolderCommand =>
+            _browseFolderCommand ?? (_browseFolderCommand = new RelayCommand(
+                () =>
+                {
+                    var (result, folderPath) = FolderBrowserDialogService.ShowDialog(
+                        OutputFolder);
+                    if (result ==DialogResult.OK)
+                    {
+                        OutputFolder = folderPath;
                     }
                 }));
 

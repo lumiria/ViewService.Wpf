@@ -10,7 +10,7 @@ namespace Lumiria.ViewServices.View.Components
 {
     public sealed class FolderBrowserDialog
     {
-        public string SelectedPath { get; set; }
+        public string FolderPath { get; set; }
 
         public string Title { get; set; }
 
@@ -30,9 +30,9 @@ namespace Lumiria.ViewServices.View.Components
             try
             {
                 dialog.SetOptions(_FILEOPENDIALOGOPTIONS.FOS_PICKFOLDERS | _FILEOPENDIALOGOPTIONS.FOS_FORCEFILESYSTEM);
-                if (!string.IsNullOrEmpty(SelectedPath))
+                if (!string.IsNullOrEmpty(FolderPath))
                 {
-                    SetFolder(dialog, SelectedPath);
+                    SetFolder(dialog, FolderPath);
                 }
                 if (!string.IsNullOrEmpty(Title))
                 {
@@ -48,7 +48,7 @@ namespace Lumiria.ViewServices.View.Components
                 if (item == null) return DialogResult.Abort;
 
                 item.GetDisplayName(SIGDN.SIGDN_FILESYSPATH, out var path);
-                SelectedPath = path;
+                FolderPath = path;
 
                 return DialogResult.OK;
             }
@@ -61,7 +61,7 @@ namespace Lumiria.ViewServices.View.Components
         private void SetFolder(IFileOpenDialog dialog, string path)
         {
             uint attributes = 0;
-            if (NativeMethods.SHICreateFromPath(path, out var idl, ref attributes) != 0)
+            if (NativeMethods.SHILCreateFromPath(path, out var idl, ref attributes) != 0)
                 return;
 
             if (NativeMethods.SHCreateShellItem(IntPtr.Zero, IntPtr.Zero, idl, out var item) == 0)
@@ -173,7 +173,7 @@ namespace Lumiria.ViewServices.View.Components
         {
 
             [DllImport("shell32.dll")]
-            public static extern int SHICreateFromPath(
+            public static extern int SHILCreateFromPath(
                 [MarshalAs(UnmanagedType.LPWStr)] string pszPath, out IntPtr ppIdl, ref uint rgfInOut);
 
             [DllImport("shell32.dll")]

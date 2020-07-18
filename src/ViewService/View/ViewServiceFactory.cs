@@ -20,5 +20,8 @@ namespace Lumiria.ViewServices.View
             new OpenFileDialogServiceImpl(owner);
         public static ISaveFileDialogService CreateSaveFileDialog(Window? owner = null) =>
             new SaveFileDialogServiceImpl(owner);
+
+        public static IFolderBrowserDialogService CreateFolderBrowserDialog(Window? owner = null) =>
+            new FolderBrowserDialogServiceImpl(owner);
     }
 }

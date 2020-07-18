@@ -24,6 +24,10 @@ namespace Sample.View
                 () => ViewServiceFactory.CreateOpenFileDialog(this));
             provider.AddService(
                 () => ViewServiceFactory.CreateSaveFileDialog(this));
+            provider.AddService(
+                () => ViewServiceFactory.CreateSaveFileDialog(this));
+            provider.AddService(
+                () => ViewServiceFactory.CreateFolderBrowserDialog(this));
         }
 
         private CodeBehindWindowViewModel ViewModel =>
