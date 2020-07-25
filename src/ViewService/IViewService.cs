@@ -1,4 +1,4 @@
-﻿namespace Lumiria.ViewServices
+﻿namespace ViewServices
 {
     /// <summary>
     /// Defines the service for view.

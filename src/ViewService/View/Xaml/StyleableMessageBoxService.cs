@@ -4,10 +4,7 @@ using System.Windows;
 
 namespace ViewServices.View.Xaml
 {
-    /// <summary>
-    /// Represents a view service for displaying a message box.
-    /// </summary>
-    public sealed class MessageBoxService : FreezableViewService<IMessageBoxService>
+    public sealed class StyleableMessageBoxService : FreezableViewService<IStyleableMessageBoxService>
     {
         private IMessageBoxService? _serviceImpl;
 
@@ -27,6 +24,6 @@ namespace ViewServices.View.Xaml
             _serviceImpl ??= new MessageBoxServiceImpl(Owner);
 
         protected override Freezable CreateInstanceCore() =>
-            new MessageBoxService();
+            new StyleableMessageBoxService();
     }
 }

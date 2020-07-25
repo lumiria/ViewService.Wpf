@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     public interface IViewServiceContainer : IViewServiceProvider
     {

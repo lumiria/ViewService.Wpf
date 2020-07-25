@@ -1,9 +1,10 @@
 ﻿#nullable enable
 
 using System.Windows;
-using Lumiria.ViewServices.View.Components;
+using ViewServices.Components;
+using ViewServices.View.Components;
 
-namespace Lumiria.ViewServices.View
+namespace ViewServices.View
 {
     internal sealed class FolderBrowserDialogServiceImpl : IFolderBrowserDialogService
     {

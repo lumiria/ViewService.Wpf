@@ -9,13 +9,15 @@
     <Copyright>© 2019 lumiria</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/lumiria/ViewService.Wpf</PackageProjectUrl>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <RootNamespace>Lumiria.ViewServices</RootNamespace>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <RootNamespace>ViewServices</RootNamespace>
+    <Version>1.2.0</Version>
     <PackageId>ViewService.Wpf</PackageId>
     <Product>ViewService.Wpf</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>This provides view services for communicating from the ViewModel to the View.</Description>
+    <PackageTags>wpf, view services</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

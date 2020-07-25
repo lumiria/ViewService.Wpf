@@ -2,11 +2,12 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
+using ViewServices.Components;
 
 // This code refers to the code of the following URL.
 // https://github.com/sh1ch/Samples/blob/master/FileOpenDialogSample/FileOpenDialogSample/Dialogs/FolderBrowserDialog.cs
 
-namespace Lumiria.ViewServices.View.Components
+namespace ViewServices.View.Components
 {
     public sealed class FolderBrowserDialog
     {

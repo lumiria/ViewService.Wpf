@@ -1,7 +1,8 @@
 ﻿using System.Windows.Input;
-using Lumiria.ViewServices;
-using Lumiria.ViewServices.View.Components;
+using ViewServices;
+using ViewServices.View.Components;
 using Sample.Model;
+using ViewServices.Components;
 
 namespace Sample.ViewModel
 {
@@ -49,6 +50,9 @@ namespace Sample.ViewModel
 
         private IFolderBrowserDialogService FolderBrowserDialogService =>
             ViewServiceProvider.Get<IFolderBrowserDialogService>();
+
+        private IStyleableMessageBoxService StyleableMessaegBoxService =>
+            ViewServiceProvider.Get<IStyleableMessageBoxService>();
 
         private RelayCommand _openFileCommand;
         public ICommand OpenFileCommand =>
@@ -98,7 +102,13 @@ namespace Sample.ViewModel
             _closeCommand ?? (_closeCommand = new RelayCommand(
                 () =>
                 {
-                    var result = MessageBoxService.Show("Do you want to save?");
+                    var result = StyleableMessaegBoxService.Show(
+                        "Confirm",
+                        "Not saved.\r\nDo you want to continue?",
+                        "CodeBehindWindow",
+                        StyleableMessageBoxButtons.YesNo);
+
+                    MessageBoxService.Show("Do you really want to close this?");
 
                     WindowActionService.Close();
                 }));

@@ -1,8 +1,8 @@
 ﻿#nullable enable
 
-using Lumiria.ViewServices.View.Components;
+using ViewServices.Components;
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     public interface IFolderBrowserDialogService : IViewService
     {

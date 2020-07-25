@@ -1,9 +1,9 @@
 ﻿#nullable enable
 
 using System;
-using Lumiria.ViewServices.View.Xaml;
+using ViewServices.View.Xaml;
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     public static class ViewService
     {

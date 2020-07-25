@@ -2,7 +2,7 @@
 
 using System.Windows;
 
-namespace Lumiria.ViewServices.View
+namespace ViewServices.View
 {
     /// <summary>
     /// An implementation of <see cref="IWindowActionService"/> that allows to operate a window.

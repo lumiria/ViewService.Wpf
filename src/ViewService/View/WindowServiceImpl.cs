@@ -3,7 +3,7 @@
 using System;
 using System.Windows;
 
-namespace Lumiria.ViewServices.View
+namespace ViewServices.View
 {
     /// <summary>
     /// An implementation of <see cref="IWindowService"/> that allows to show a window.

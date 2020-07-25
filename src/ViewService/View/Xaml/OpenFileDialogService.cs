@@ -3,7 +3,7 @@
 using System.Windows;
 using Microsoft.Win32;
 
-namespace Lumiria.ViewServices.View.Xaml
+namespace ViewServices.View.Xaml
 {
     /// <summary>
     /// Represents a service that provides a common dialog box that allows a user to specify a filename for one or more files to open.

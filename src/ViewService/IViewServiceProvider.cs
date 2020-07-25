@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     /// <summary>
     /// Defines a mechanism for retrieving a service object for the view.

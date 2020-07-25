@@ -14,6 +14,16 @@
         <vm:CodeBehindWindowViewModel />
     </Window.DataContext>
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="MessageButton" TargetType="{x:Type Button}">
+                <Button Margin="{TemplateBinding Margin}" Padding="{TemplateBinding Padding}">
+                    <ContentPresenter />
+                </Button>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid Margin="6">
         <Grid.Resources>
             <ResourceDictionary>

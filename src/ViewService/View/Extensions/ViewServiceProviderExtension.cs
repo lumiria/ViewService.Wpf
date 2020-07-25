@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Lumiria.ViewServices.View.Extensions
+namespace ViewServices.View.Extensions
 {
     public static class ViewServiceProviderExtension
     {

@@ -11,4 +11,4 @@ using System.Windows.Markup;
 )]
 
 [assembly: XmlnsDefinition("http://schemas.lumiria.com/view-services",
-    "Lumiria.ViewServices.View.Xaml")]
+    "ViewServices.View.Xaml")]

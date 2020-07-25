@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     /// <summary>
     /// Represents a view service that provides a <see cref="OpenFileDialog"/>.

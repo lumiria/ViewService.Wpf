@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Lumiria.ViewServices
+namespace ViewServices
 {
     /// <summary>
     /// An interface that provides a service for operating window. 

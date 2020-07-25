@@ -3,7 +3,7 @@
 using System;
 using System.Windows;
 
-namespace Lumiria.ViewServices.View.Xaml
+namespace ViewServices.View.Xaml
 {
     internal sealed class AnonymousViewService : FreezableViewService
     {

@@ -1,0 +1,95 @@
+﻿<Window x:Class="ViewServices.View.Components.StyleableMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:extender="clr-namespace:ViewServices.View.Extenders"
+        xmlns:local="clr-namespace:ViewServices.View.Components"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="{Binding Caption}"
+        extender:WindowExtender.ShowIcon="False"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        SizeToContent="WidthAndHeight"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="4,0" />
+                <Setter Property="MinWidth" Value="80" />
+            </Style>
+            <Style x:Key="FooterPaneStyle" TargetType="{x:Type Border}">
+                <Setter Property="Padding" Value="4,8" />
+                <Setter Property="BorderThickness" Value="0,1,0,0" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+            </Style>
+            <Style x:Key="MessageBox.InstructionTextStyle"
+                   BasedOn="{StaticResource {x:Type TextBlock}}"
+                   TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                <Setter Property="Margin" Value="0,0,0,12" />
+            </Style>
+            <Style x:Key="MessageBox.TextStyle"
+                   BasedOn="{StaticResource {x:Type TextBlock}}"
+                   TargetType="{x:Type TextBlock}">
+                <Setter Property="Margin" Value="0,0,0,12" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       extender:ControlExtender.Style="{Binding InstructionTextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       Style="{StaticResource MessageBox.InstructionTextStyle}"
+                       Text="{Binding InstructionText, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       Visibility="{Binding InstructionTextVisilibity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+            <TextBlock Grid.Row="1"
+                       Grid.Column="1"
+                       extender:ControlExtender.Style="{Binding TextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       extender:ControlExtender.Template="{Binding TextTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       Style="{StaticResource MessageBox.TextStyle}"
+                       Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       Visibility="{Binding TextVisilibity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+        </Grid>
+        <Border Grid.Row="1"
+                Padding="4,8"
+                extender:ControlExtender.Style="{Binding FooterPaneStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+                BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
+                BorderThickness="0,1,0,0">
+            <ItemsControl HorizontalAlignment="Right" ItemsSource="{Binding Buttons, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Padding="4"
+                                extender:ControlExtender.Style="{Binding ButtonStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                extender:ControlExtender.Template="{Binding ButtonTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                Click="Button_Click"
+                                Content="{Binding Header}"
+                                IsDefault="{Binding IsDefault}" />
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </Border>
+    </Grid>
+</Window>

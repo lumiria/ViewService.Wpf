@@ -3,7 +3,7 @@
 using System.Windows;
 using Microsoft.Win32;
 
-namespace Lumiria.ViewServices.View
+namespace ViewServices.View
 {
     internal sealed class OpenFileDialogServiceImpl : IOpenFileDialogService
     {

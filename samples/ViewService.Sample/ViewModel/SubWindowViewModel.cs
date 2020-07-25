@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
-using Lumiria.ViewServices;
+using ViewServices;
 
 namespace Sample.ViewModel
 {

@@ -2,8 +2,9 @@
 
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
-namespace Lumiria.ViewServices.View
+namespace ViewServices.View
 {
     public static class ViewServiceFactory
     {
@@ -23,5 +24,24 @@ namespace Lumiria.ViewServices.View
 
         public static IFolderBrowserDialogService CreateFolderBrowserDialog(Window? owner = null) =>
             new FolderBrowserDialogServiceImpl(owner);
+
+        public static IStyleableMessageBoxService CreateStyleableMessageBox(
+            Window? owner = null,
+            WindowStartupLocation startupLocation = WindowStartupLocation.CenterScreen,
+            Style? windowStyle = null,
+            Style? instructionTextStyle = null,
+            ControlTemplate? textTemplate = null,
+            Style? textStyle = null,
+            ControlTemplate? buttonTemplate = null,
+            Style? buttonStyle = null) =>
+            new StyleableMessageBoxServiceImpl(
+                owner,
+                startupLocation,
+                windowStyle,
+                instructionTextStyle,
+                textTemplate,
+                textStyle,
+                buttonTemplate,
+                buttonStyle);
     }
 }

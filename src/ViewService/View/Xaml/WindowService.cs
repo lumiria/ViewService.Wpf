@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Lumiria.ViewServices.View.Xaml
+namespace ViewServices.View.Xaml
 {
     /// <summary>
     /// Represents a view service for displaying a window.

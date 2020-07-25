@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows;
-using Lumiria.ViewServices.View;
-using Lumiria.ViewServices.View.Extensions;
+using ViewServices.View;
+using ViewServices.View.Extensions;
 using Sample.ViewModel;
+using System.Windows.Controls;
 
 namespace Sample.View
 {
@@ -28,6 +29,9 @@ namespace Sample.View
                 () => ViewServiceFactory.CreateSaveFileDialog(this));
             provider.AddService(
                 () => ViewServiceFactory.CreateFolderBrowserDialog(this));
+            provider.AddService(
+                () => ViewServiceFactory.CreateStyleableMessageBox(this,
+                buttonTemplate: (ControlTemplate)FindResource("MessageButton")));
         }
 
         private CodeBehindWindowViewModel ViewModel =>

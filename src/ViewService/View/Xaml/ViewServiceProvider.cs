@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 
-namespace Lumiria.ViewServices.View.Xaml
+namespace ViewServices.View.Xaml
 {
     /// <summary>
     /// Represents a mechanism for retrieving a service object for the view.

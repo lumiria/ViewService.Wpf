@@ -90,6 +90,10 @@ service.Close();
 
     Display a message box.
 
+* **IStyleableMessagBoxService**
+
+    Display a styleable custom message box.
+
 * **IOpenFileDialogService**
 
     Call [OpenFileDialog](https://docs.microsoft.com/ja-jp/dotnet/api/microsoft.win32.openfiledialog).
@@ -97,6 +101,19 @@ service.Close();
 * **ISaveFileDialogService**
 
     Call [SaveFileDialog](https://docs.microsoft.com/ja-jp/dotnet/api/microsoft.win32.savefiledialog).
+
+* **IFolderBrowserDialogService**
+
+
+## Note
+The namespace has changed since version 1.1.0.
+
+old (version 1.0.1 or earlier):
+> Lumiria.ViewServices
+
+new:
+> ViewServices
+
 
 ## License
 This library is under the MIT License.
