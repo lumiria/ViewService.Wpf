@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Sample.View">
+
+    <Style x:Key="Theme.WindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="26"
+                              CornerRadius="4"
+                              GlassFrameThickness="1"
+                              UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="#484848" />
+        <Setter Property="BorderBrush" Value="#20B0FF" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="AllowsTransparency" Value="True" />
+    </Style>
+
+    <Style x:Key="Theme.FooterPaneStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="#363636" />
+        <Setter Property="Padding" Value="4,8" />
+    </Style>
+
+    <Style x:Key="Theme.InstructionTextStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="DodgerBlue" />
+        <Setter Property="Margin" Value="0,0,0,12" />
+    </Style>
+
+    <ControlTemplate x:Key="Theme.ButtonTemplate" TargetType="{x:Type Button}">
+        <Grid x:Name="MessageBoxButton" Background="#121212">
+            <Border BorderBrush="#1570A6" BorderThickness="1" />
+            <ContentPresenter Margin="5"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              TextBlock.Foreground="White" />
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="CommonStates">
+                    <VisualState Name="Normal" />
+                    <VisualState Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="MessageBoxButton"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="#1570A6"
+                                            Duration="00:00:00.200" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState Name="Pressed">
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetName="MessageBoxButton"
+                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                            To="Black"
+                                            Duration="00:00:00.1" />
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+
+
+    <DataTemplate x:Key="Theme.CaptionPaneTemplate">
+        <DockPanel>
+            <Button Width="24"
+                    Height="24"
+                    Background="Red"
+                    BorderThickness="0"
+                    Command="{x:Static SystemCommands.CloseWindowCommand}"
+                    Content="✕"
+                    DockPanel.Dock="Right"
+                    Foreground="White"
+                    WindowChrome.IsHitTestVisibleInChrome="True" />
+            <TextBlock Margin="6,3"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Text="{Binding Caption, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+        </DockPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

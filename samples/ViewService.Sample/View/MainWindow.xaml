@@ -17,6 +17,10 @@
 
     <Window.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
             <service:ViewServiceProvider x:Key="ViewServiceProvider" Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
                 <service:WindowService Key="Sub"
                                        Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
@@ -25,26 +29,44 @@
                 <service:WindowService Key="CodeBehind"
                                        Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                        WindowType="{x:Type view:CodeBehindWindow}" />
+                <service:StyleableMessageBoxService Key="StyleableMessageBox"
+                                                    ButtonTemplate="{StaticResource Theme.ButtonTemplate}"
+                                                    Caption="Sample"
+                                                    CaptionPaneTemplate="{StaticResource Theme.CaptionPaneTemplate}"
+                                                    FooterPaneStyle="{StaticResource Theme.FooterPaneStyle}"
+                                                    Image="Information"
+                                                    InstructionText="Styleable MessagBox"
+                                                    InstructionTextStyle="{StaticResource Theme.InstructionTextStyle}"
+                                                    Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                                    StartupLocation="CenterOwner"
+                                                    WindowStyle="{StaticResource Theme.WindowStyle}" />
             </service:ViewServiceProvider>
+
         </ResourceDictionary>
 
     </Window.Resources>
 
     <StackPanel Margin="16" HorizontalAlignment="Center">
-        <Button Margin="0,6"
-                Padding="8,4"
-                Command="{Binding SubWindowCommand}"
+        <StackPanel.Resources>
+            <ResourceDictionary>
+                <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="0,6" />
+                    <Setter Property="Padding" Value="8,4" />
+                </Style>
+            </ResourceDictionary>
+        </StackPanel.Resources>
+        <Button Command="{Binding SubWindowCommand}"
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="SubWindow" />
-        <Button Margin="0,6"
-                Padding="8,4"
-                Command="{Binding MessageBoxCommand}"
+        <Button Command="{Binding MessageBoxCommand}"
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="MessageBox" />
-        <Button Margin="0,6"
-                Padding="8,4"
-                Command="{Binding CodeBehindWindowCommand}"
+        <Button Command="{Binding CodeBehindWindowCommand}"
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="CodeBehindWindow" />
+        <Separator />
+        <Button Command="{Binding StyleableMessageBoxCommand}"
+                CommandParameter="{StaticResource ViewServiceProvider}"
+                Content="StyleableMessageBox" />
     </StackPanel>
 </Window>

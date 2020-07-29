@@ -36,6 +36,17 @@ namespace Sample.ViewModel
                 },
                 _ => true));
 
+        private RelayCommand<IViewServiceProvider> _styleableMessageBoxCommand;
+        public ICommand StyleableMessageBoxCommand =>
+            _styleableMessageBoxCommand ?? (_styleableMessageBoxCommand = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var service = provider.Get<IStyleableMessageBoxService>("StyleableMessageBox");
+                    service.Show("This is a styleable message box.");
+                },
+                _ => true));
+
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

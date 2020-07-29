@@ -29,17 +29,20 @@ namespace ViewServices.View
             Window? owner = null,
             WindowStartupLocation startupLocation = WindowStartupLocation.CenterScreen,
             Style? windowStyle = null,
+            Style? footerPaneStyle = null,
             Style? instructionTextStyle = null,
-            ControlTemplate? textTemplate = null,
+            //ControlTemplate? textTemplate = null,
             Style? textStyle = null,
             ControlTemplate? buttonTemplate = null,
-            Style? buttonStyle = null) =>
+            Style? buttonStyle = null,
+            DataTemplate? captionPaneTemplate = null) =>
             new StyleableMessageBoxServiceImpl(
                 owner,
                 startupLocation,
                 windowStyle,
+                footerPaneStyle,
                 instructionTextStyle,
-                textTemplate,
+                //textTemplate,
                 textStyle,
                 buttonTemplate,
                 buttonStyle);

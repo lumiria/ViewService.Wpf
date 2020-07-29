@@ -14,15 +14,22 @@
 
     <Window.Resources>
         <ResourceDictionary>
-            <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
+            <Style x:Key="MessageBox.ButtonStyle"
+                   BasedOn="{StaticResource {x:Type Button}}"
+                   TargetType="{x:Type Button}">
                 <Setter Property="Margin" Value="4,0" />
                 <Setter Property="MinWidth" Value="80" />
             </Style>
-            <Style x:Key="FooterPaneStyle" TargetType="{x:Type Border}">
+            <Style x:Key="MessageBox.FooterPaneStyle" TargetType="{x:Type Border}">
                 <Setter Property="Padding" Value="4,8" />
                 <Setter Property="BorderThickness" Value="0,1,0,0" />
                 <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+            </Style>
+            <Style x:Key="MessageBox.ImageStyle" TargetType="{x:Type Image}">
+                <Setter Property="Margin" Value="0,0,12,12" />
+                <Setter Property="Width" Value="48" />
+                <Setter Property="Height" Value="48" />
             </Style>
             <Style x:Key="MessageBox.InstructionTextStyle"
                    BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -37,41 +44,72 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding CanExecute="CommandBinding_CanExecute"
+                        Command="{x:Static SystemCommands.MinimizeWindowCommand}"
+                        Executed="CommandBinding_Minimize_Executed" />
+        <CommandBinding CanExecute="CommandBinding_CanExecute"
+                        Command="{x:Static SystemCommands.RestoreWindowCommand}"
+                        Executed="CommandBinding_Restore_Executed" />
+        <CommandBinding CanExecute="CommandBinding_CanExecute"
+                        Command="{x:Static SystemCommands.MaximizeWindowCommand}"
+                        Executed="CommandBinding_Maximize_Executed" />
+        <CommandBinding CanExecute="CommandBinding_CanExecute"
+                        Command="{x:Static SystemCommands.CloseWindowCommand}"
+                        Executed="CommandBinding_Close_Executed" />
+    </Window.CommandBindings>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="12">
+
+        <!--  CaptionPane  -->
+        <ContentControl Grid.Row="0" ContentTemplate="{Binding CaptionPaneTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+
+        <!--  ContentPane  -->
+        <Grid Grid.Row="1" Margin="12">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
+
+            <Image Grid.Row="0"
+                   Grid.RowSpan="2"
+                   Grid.Column="0"
+                   extender:FrameworkElementExtender.Style="{Binding ImageStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                   Source="{Binding InnerImage, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                   Style="{StaticResource MessageBox.ImageStyle}"
+                   Visibility="{Binding ImageVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+
+            <!--  InstructionText  -->
             <TextBlock Grid.Row="0"
                        Grid.Column="1"
-                       extender:ControlExtender.Style="{Binding InstructionTextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       extender:FrameworkElementExtender.Style="{Binding InstructionTextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                        Style="{StaticResource MessageBox.InstructionTextStyle}"
                        Text="{Binding InstructionText, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                       Visibility="{Binding InstructionTextVisilibity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                       Visibility="{Binding InstructionTextVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+            <!--  Text  -->
             <TextBlock Grid.Row="1"
                        Grid.Column="1"
-                       extender:ControlExtender.Style="{Binding TextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                       extender:ControlExtender.Template="{Binding TextTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                       extender:FrameworkElementExtender.Style="{Binding TextStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                        Style="{StaticResource MessageBox.TextStyle}"
                        Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                       Visibility="{Binding TextVisilibity, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                       Visibility="{Binding TextVisibility, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
         </Grid>
-        <Border Grid.Row="1"
-                Padding="4,8"
-                extender:ControlExtender.Style="{Binding FooterPaneStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
-                BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
-                BorderThickness="0,1,0,0">
-            <ItemsControl HorizontalAlignment="Right" ItemsSource="{Binding Buttons, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
+
+        <!--  FooterPane  -->
+        <Border Grid.Row="2"
+                extender:FrameworkElementExtender.Style="{Binding FooterPaneStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                Style="{StaticResource MessageBox.FooterPaneStyle}">
+            <ItemsControl HorizontalAlignment="Right" ItemsSource="{Binding InnerButtons, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" />
@@ -80,11 +118,12 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Padding="4"
-                                extender:ControlExtender.Style="{Binding ButtonStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                 extender:ControlExtender.Template="{Binding ButtonTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                extender:FrameworkElementExtender.Style="{Binding ButtonStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                 Click="Button_Click"
                                 Content="{Binding Header}"
-                                IsDefault="{Binding IsDefault}" />
+                                IsDefault="{Binding IsDefault}"
+                                Style="{StaticResource MessageBox.ButtonStyle}" />
 
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
