@@ -36,6 +36,16 @@ namespace Sample.ViewModel
                 },
                 _ => true));
 
+        private RelayCommand<IViewServiceProvider> _standardMessageBoxCommand;
+        public ICommand StandardMessageBoxCommand =>
+            _standardMessageBoxCommand ?? (_standardMessageBoxCommand = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var service = provider.Get<IMessageBoxService>("StandardMessageBox");
+                    service.Show("This is a standard message box.");
+                },
+                _ => true));
+
         private RelayCommand<IViewServiceProvider> _styleableMessageBoxCommand;
         public ICommand StyleableMessageBoxCommand =>
             _styleableMessageBoxCommand ?? (_styleableMessageBoxCommand = new RelayCommand<IViewServiceProvider>(

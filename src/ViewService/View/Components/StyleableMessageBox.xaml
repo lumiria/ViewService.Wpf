@@ -28,8 +28,8 @@
             </Style>
             <Style x:Key="MessageBox.ImageStyle" TargetType="{x:Type Image}">
                 <Setter Property="Margin" Value="0,0,12,12" />
-                <Setter Property="Width" Value="48" />
-                <Setter Property="Height" Value="48" />
+                <Setter Property="Width" Value="32" />
+                <Setter Property="Height" Value="32" />
             </Style>
             <Style x:Key="MessageBox.InstructionTextStyle"
                    BasedOn="{StaticResource {x:Type TextBlock}}"

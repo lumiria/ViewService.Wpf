@@ -106,7 +106,6 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("CaptionPaneTemplate", typeof(DataTemplate), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
-
         public string? Caption
         {
             get => (string?)GetValue(CaptionProperty);
