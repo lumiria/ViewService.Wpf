@@ -1,10 +1,9 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using ViewServices;
 
 namespace Sample.ViewModel
 {
-    public sealed class MainWindowViewModel : INotifyPropertyChanged
+    public sealed class MainWindowViewModel : BaseViewModel
     {
         private RelayCommand<IViewServiceProvider> _subWindowCommand;
         public ICommand SubWindowCommand =>
@@ -36,27 +35,24 @@ namespace Sample.ViewModel
                 },
                 _ => true));
 
-        private RelayCommand<IViewServiceProvider> _standardMessageBoxCommand;
+        private RelayCommand _standardMessageBoxCommand;
         public ICommand StandardMessageBoxCommand =>
-            _standardMessageBoxCommand ?? (_standardMessageBoxCommand = new RelayCommand<IViewServiceProvider>(
-                provider =>
+            _standardMessageBoxCommand ?? (_standardMessageBoxCommand = new RelayCommand(
+                () =>
                 {
-                    var service = provider.Get<IMessageBoxService>("StandardMessageBox");
+                    var service = ViewServiceProvider.Get<IMessageBoxService>("StandardMessageBox");
                     service.Show("This is a standard message box.");
                 },
-                _ => true));
+                () => true));
 
-        private RelayCommand<IViewServiceProvider> _styleableMessageBoxCommand;
+        private RelayCommand _styleableMessageBoxCommand;
         public ICommand StyleableMessageBoxCommand =>
-            _styleableMessageBoxCommand ?? (_styleableMessageBoxCommand = new RelayCommand<IViewServiceProvider>(
-                provider =>
+            _styleableMessageBoxCommand ?? (_styleableMessageBoxCommand = new RelayCommand(
+                () =>
                 {
-                    var service = provider.Get<IStyleableMessageBoxService>("StyleableMessageBox");
+                    var service = ViewServiceProvider.Get<IStyleableMessageBoxService>("StyleableMessageBox");
                     service.Show("This is a styleable message box.");
                 },
-                _ => true));
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
+                () => true));
     }
 }

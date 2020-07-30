@@ -31,10 +31,10 @@ namespace ViewServices.View
             Style? windowStyle = null,
             Style? footerPaneStyle = null,
             Style? instructionTextStyle = null,
-            //ControlTemplate? textTemplate = null,
             Style? textStyle = null,
             ControlTemplate? buttonTemplate = null,
             Style? buttonStyle = null,
+            Style? imageStyle = null,
             DataTemplate? captionPaneTemplate = null) =>
             new StyleableMessageBoxServiceImpl(
                 owner,
@@ -42,9 +42,10 @@ namespace ViewServices.View
                 windowStyle,
                 footerPaneStyle,
                 instructionTextStyle,
-                //textTemplate,
                 textStyle,
                 buttonTemplate,
-                buttonStyle);
+                buttonStyle,
+                imageStyle,
+                captionPaneTemplate);
     }
 }

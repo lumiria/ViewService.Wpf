@@ -1,7 +1,6 @@
 ﻿using System.Windows.Input;
-using ViewServices;
-using ViewServices.View.Components;
 using Sample.Model;
+using ViewServices;
 using ViewServices.Components;
 
 namespace Sample.ViewModel
@@ -103,7 +102,7 @@ namespace Sample.ViewModel
                 () =>
                 {
                     var result = StyleableMessaegBoxService.Show(
-                        "Confirm",
+                        null,
                         "Not saved.\r\nDo you want to continue?",
                         "CodeBehindWindow",
                         StyleableMessageBoxButtons.YesNo);

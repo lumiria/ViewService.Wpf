@@ -1,6 +1,6 @@
-﻿using System;
+﻿#nullable enable
+
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using ViewServices.View.Components;
 
@@ -8,6 +8,16 @@ namespace ViewServices
 {
     public interface IStyleableMessageBoxService : IViewService
     {
+        string? Caption { get; set; }
+
+        MessageBoxImage Image { get; set; }
+
+        string? InstructionText { get; set; }
+
+        string? Text { get; set; }
+
+        IEnumerable<StyleableMessageBoxButton> Buttons { get; set; }
+
         MessageBoxResult Show(string text);
 
         MessageBoxResult Show(string instructionText, string text);

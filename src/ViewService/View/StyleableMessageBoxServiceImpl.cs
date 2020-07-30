@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using ViewServices.Components;
 using ViewServices.View.Components;
 
 namespace ViewServices.View
@@ -47,10 +48,14 @@ namespace ViewServices.View
         public string? Caption { get; set; }
 
         public MessageBoxImage Image { get; set; }
+            = MessageBoxImage.None;
 
         public string? InstructionText { get; set; }
 
         public string? Text { get; set; }
+
+        public IEnumerable<StyleableMessageBoxButton> Buttons { get; set; }
+            = StyleableMessageBoxButtons.OK;
 
         public MessageBoxResult Show(string text)
         {
@@ -60,6 +65,7 @@ namespace ViewServices.View
                 Image = Image,
                 InstructionText = InstructionText,
                 Text = text,
+                Buttons = Buttons
             };
             Initialize(dialog);
             return dialog.Show();
@@ -72,7 +78,8 @@ namespace ViewServices.View
                 Caption = Caption,
                 Image = Image,
                 InstructionText = instructionText,
-                Text = text
+                Text = text,
+                Buttons = Buttons
             };
             Initialize(dialog);
             return dialog.Show();
@@ -85,7 +92,8 @@ namespace ViewServices.View
                 Caption = caption,
                 Image = Image,
                 InstructionText = instructionText,
-                Text = text
+                Text = text,
+                Buttons = Buttons
             };
             Initialize(dialog);
             return dialog.Show();

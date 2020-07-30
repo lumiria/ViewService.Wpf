@@ -9,6 +9,7 @@
         Title="MainWindow"
         Width="480"
         Height="360"
+        Loaded="Window_Loaded"
         mc:Ignorable="d">
 
     <Window.DataContext>
@@ -69,11 +70,7 @@
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="CodeBehindWindow" />
         <Separator />
-        <Button Command="{Binding StandardMessageBoxCommand}"
-                CommandParameter="{StaticResource ViewServiceProvider}"
-                Content="MessageBox" />
-        <Button Command="{Binding StyleableMessageBoxCommand}"
-                CommandParameter="{StaticResource ViewServiceProvider}"
-                Content="StyleableMessageBox" />
+        <Button Command="{Binding StandardMessageBoxCommand}" Content="MessageBox" />
+        <Button Command="{Binding StyleableMessageBoxCommand}" Content="StyleableMessageBox" />
     </StackPanel>
 </Window>

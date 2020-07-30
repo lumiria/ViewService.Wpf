@@ -47,6 +47,17 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(MessageBoxService), new PropertyMetadata(""));
 
+
+
+        public MessageBoxButton Button
+        {
+            get => (MessageBoxButton)GetValue(ButtonProperty);
+            set => SetValue(ButtonProperty, value);
+        }
+        public static readonly DependencyProperty ButtonProperty =
+            DependencyProperty.Register("Button", typeof(MessageBoxButton), typeof(MessageBoxService), new PropertyMetadata(MessageBoxButton.OK));
+
+
         internal override IViewService GetService() =>
             _serviceImpl ??= new MessageBoxServiceImpl(Owner)
             {

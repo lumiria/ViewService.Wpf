@@ -25,6 +25,14 @@ namespace ViewServices.View
         public string Text { get; set; }
             = "";
 
+        public MessageBoxButton Button { get; set; }
+            = MessageBoxButton.OK;
+
+        MessageBoxResult Result { get; set; }
+            = MessageBoxResult.None;
+
+        MessageBoxOptions Optios { get; set; }
+
         /// <summary>
         /// Displays a message box that has a message and that returns a result.
         /// </summary>
@@ -32,8 +40,8 @@ namespace ViewServices.View
         /// <returns>A <see cref="MessageBoxResult"/> value that specifies which message box button is clicked by the user.</returns>
         public MessageBoxResult Show(string messageBoxText) =>
             _owner == null
-                ? MessageBox.Show(messageBoxText, Caption, MessageBoxButton.OK, Image)
-                : MessageBox.Show(_owner, messageBoxText, Caption, MessageBoxButton.OK, Image);
+                ? MessageBox.Show(messageBoxText, Caption, Button, Image)
+                : MessageBox.Show(_owner, messageBoxText, Caption, Button, Image);
 
         /// <summary>
         /// Displays a message box that has a message and title bar caption; and that returns a result.
@@ -43,8 +51,8 @@ namespace ViewServices.View
         /// <returns>A <see cref="MessageBoxResult"/> value that specifies which message box button is clicked by the user.</returns>
         public MessageBoxResult Show(string messageBoxText, string caption) =>
             _owner == null
-                ? MessageBox.Show(messageBoxText, caption, MessageBoxButton.OK, Image)
-                : MessageBox.Show(_owner, messageBoxText, caption, MessageBoxButton.OK, Image);
+                ? MessageBox.Show(messageBoxText, caption, Button, Image)
+                : MessageBox.Show(_owner, messageBoxText, caption, Button, Image);
 
         /// <summary>
         /// Displays a message box that has a message, title bar caption, and button; and that returns a result.

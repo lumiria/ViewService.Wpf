@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using Sample.ViewModel;
+using ViewServices;
 
 namespace Sample.View
 {
@@ -10,6 +12,13 @@ namespace Sample.View
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!(DataContext is MainWindowViewModel vm)) return;
+
+            vm.ViewServiceProvider = (IViewServiceProvider)FindResource("ViewServiceProvider");
         }
     }
 }

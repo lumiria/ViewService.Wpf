@@ -7,6 +7,14 @@ namespace ViewServices
     /// </summary>
     public interface IMessageBoxService : IViewService
     {
+        string Caption { get; set; }
+
+        MessageBoxImage Image { get; set; }
+
+        string Text { get; set; }
+
+        MessageBoxButton Button { get; set; }
+
         /// <summary>
         /// Displays a message box that has a message and that returns a result.
         /// </summary>
