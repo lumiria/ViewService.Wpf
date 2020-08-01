@@ -7,6 +7,28 @@ namespace ViewServices
     /// </summary>
     public interface ISaveFileDialogService : IViewService
     {
+        public string? Filter { get; set; }
+
+        public int? FilderIndex { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? DefaultExt { get; set; }
+
+        public bool? AddExtension { get; set; }
+
+        public bool? CheckFileExists { get; set; }
+
+        public bool? CheckPathExists { get; set; }
+
+        public bool? DereferenceLinks { get; set; }
+
+        public bool? CreatePrompt { get; set; }
+
+        public bool? OverwritePrompt { get; set; }
+
+        public bool? ValidateNames { get; set; }
+
         /// <summary>
         /// Displays a <see cref="SaveFileDialog"/>.
         /// </summary>

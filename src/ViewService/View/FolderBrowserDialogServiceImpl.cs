@@ -15,6 +15,8 @@ namespace ViewServices.View
             _owner = owner;
         }
 
+        public string? Title { get; set; }
+
         public (DialogResult result, string? folderPath) ShowDialog(
             string? folderPath = null,
             string? title = null)
@@ -22,7 +24,7 @@ namespace ViewServices.View
             var dialog = new FolderBrowserDialog()
             {
                 FolderPath = folderPath,
-                Title = title
+                Title = title ?? Title
             };
 
 

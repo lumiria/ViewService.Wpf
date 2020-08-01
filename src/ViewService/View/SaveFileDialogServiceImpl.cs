@@ -14,6 +14,28 @@ namespace ViewServices.View
             _owner = owner;
         }
 
+        public string? Filter { get; set; }
+
+        public int? FilderIndex { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? DefaultExt { get; set; }
+
+        public bool? AddExtension { get; set; }
+
+        public bool? CheckFileExists { get; set; }
+
+        public bool? CheckPathExists { get; set; }
+
+        public bool? DereferenceLinks { get; set; }
+
+        public bool? CreatePrompt { get; set; }
+
+        public bool? OverwritePrompt { get; set; }
+
+        public bool? ValidateNames { get; set; }
+
         public (bool result, string fileName) ShowDialog(
             string? initialDirectory = null,
             string? fileName = null,
@@ -32,17 +54,17 @@ namespace ViewServices.View
             var dialog = CreateDialog(
                 initialDirectory,
                 fileName,
-                filter,
-                filterIndex,
-                title,
-                defaultExt,
-                addExtension,
-                checkFileExists,
-                checkPathExists,
-                dereferenceLinks,
-                createPrompt,
-                overwritePrompt,
-                validateNames);
+                filter ?? Filter,
+                filterIndex ?? FilderIndex,
+                title ?? Title,
+                defaultExt ?? DefaultExt,
+                addExtension ?? AddExtension,
+                checkFileExists ?? CheckFileExists,
+                checkPathExists ?? CheckPathExists,
+                dereferenceLinks ?? DereferenceLinks,
+                createPrompt ?? CreatePrompt,
+                overwritePrompt ?? OverwritePrompt,
+                validateNames ?? ValidateNames);
 
             var result = _owner == null
                 ? dialog.ShowDialog()
