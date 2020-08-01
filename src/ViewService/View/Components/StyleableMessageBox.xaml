@@ -12,6 +12,12 @@
         SizeToContent="WidthAndHeight"
         mc:Ignorable="d">
 
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Padding" Value="12" />
+        </Style>
+    </Window.Style>
+
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="MessageBox.ButtonStyle"
@@ -19,6 +25,7 @@
                    TargetType="{x:Type Button}">
                 <Setter Property="Margin" Value="4,0" />
                 <Setter Property="MinWidth" Value="80" />
+                <Setter Property="Padding" Value="4" />
             </Style>
             <Style x:Key="MessageBox.FooterPaneStyle" TargetType="{x:Type Border}">
                 <Setter Property="Padding" Value="4,8" />
@@ -30,6 +37,7 @@
                 <Setter Property="Margin" Value="0,0,12,12" />
                 <Setter Property="Width" Value="32" />
                 <Setter Property="Height" Value="32" />
+                <Setter Property="VerticalAlignment" Value="Top" />
             </Style>
             <Style x:Key="MessageBox.InstructionTextStyle"
                    BasedOn="{StaticResource {x:Type TextBlock}}"
@@ -71,7 +79,7 @@
         <ContentControl Grid.Row="0" ContentTemplate="{Binding CaptionPaneTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
 
         <!--  ContentPane  -->
-        <Grid Grid.Row="1" Margin="12">
+        <Grid Grid.Row="1" Margin="{Binding Padding, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition />
@@ -117,8 +125,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Padding="4"
-                                extender:ControlExtender.Template="{Binding ButtonTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                        <Button extender:ControlExtender.Template="{Binding ButtonTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                 extender:FrameworkElementExtender.Style="{Binding ButtonStyle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                 Click="Button_Click"
                                 Content="{Binding Header}"

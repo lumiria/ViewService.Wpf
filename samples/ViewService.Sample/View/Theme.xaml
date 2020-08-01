@@ -17,6 +17,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="WindowStyle" Value="None" />
         <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="Padding" Value="24" />
     </Style>
 
     <Style x:Key="Theme.FooterPaneStyle" TargetType="{x:Type Border}">
