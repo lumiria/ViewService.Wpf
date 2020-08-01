@@ -7,26 +7,64 @@ namespace ViewServices
     /// </summary>
     public interface ISaveFileDialogService : IViewService
     {
+        /// <summary>
+        /// Gets or sets the initial directory that is displayed by a file dialog.
+        /// </summary>
+        string? InitialDirectory { get; set; }
+
+        /// <summary>
+        /// Gets or sets the filter string that determines what types of files are displayed from either the OpenFileDialog.
+        /// </summary>
         public string? Filter { get; set; }
 
-        public int? FilderIndex { get; set; }
+        /// <summary>
+        /// Gets or sets the index of the filter currently selected in a file dialog.
+        /// </summary>
+        public int? FilterIndex { get; set; }
 
+        /// <summary>
+        /// Gets or sets the text that appears in the bar of a file dialog.
+        /// </summary>
         public string? Title { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value that specifies the default extension string to use to filter the list of files that are displayed.
+        /// </summary>
         public string? DefaultExt { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether a file dialog automatically adds an extension to a file name if the user omits an extension.
+        /// </summary>
         public bool? AddExtension { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether a file dialog displays a warning if the user specifies a file name that does not exist.
+        /// </summary>
         public bool? CheckFileExists { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value that specifies whether warnings are displayed if the user types invalid paths and file names.
+        /// </summary>
         public bool? CheckPathExists { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether a file dialog returns either the location of the file referenced by a shortcut or the location of the shortcut file (.lnk).
+        /// </summary>
         public bool? DereferenceLinks { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether <see cref="SaveFileDialog"/> prompts the user for permmission to create a file if the user specifies a file that does not exist.
+        /// </summary>
         public bool? CreatePrompt { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether <see cref="SaveFileDialog"/> displays a warning if the user specifies the name of a file that already exists.
+        /// </summary>
         public bool? OverwritePrompt { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the dialog accepts only valid Win32 file names.
+        /// </summary>
         public bool? ValidateNames { get; set; }
 
         /// <summary>
