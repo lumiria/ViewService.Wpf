@@ -34,6 +34,12 @@
                                            Caption="Sample"
                                            Image="Information"
                                            Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                <service:StyleableMessageBoxService Key="DefaultStyleableMessageBox"
+                                                    Caption="Sample"
+                                                    Image="Information"
+                                                    InstructionText="Styleable MessagBox"
+                                                    Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                                    StartupLocation="CenterOwner" />
                 <service:StyleableMessageBoxService Key="StyleableMessageBox"
                                                     ButtonTemplate="{StaticResource Theme.ButtonTemplate}"
                                                     Caption="Sample"
@@ -71,6 +77,7 @@
                 Content="CodeBehindWindow" />
         <Separator />
         <Button Command="{Binding StandardMessageBoxCommand}" Content="MessageBox" />
+        <Button Command="{Binding DefaultStyleableMessageBoxCommand}" Content="StyleableMessageBox(Default)" />
         <Button Command="{Binding StyleableMessageBoxCommand}" Content="StyleableMessageBox" />
     </StackPanel>
 </Window>
