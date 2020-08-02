@@ -12,17 +12,14 @@ namespace ViewServices.View
     {
         private readonly Type _windowType;
         private readonly Window? _owner;
+        private readonly WindowStartupLocation _startupLocation;
 
-        public WindowServiceImpl(Type windowType, Window? owner)
+        public WindowServiceImpl(Type windowType, Window? owner, WindowStartupLocation startupLocation=WindowStartupLocation.Manual)
         {
             _windowType = windowType;
             _owner = owner;
+            _startupLocation = startupLocation;
         }
-
-        ///// <summary>
-        ///// Gets or sets the key uniquely identifying this service.
-        ///// </summary>
-        //public string Key { get; set; }
 
         /// <summary>
         /// Opens a window and resturns without waiting for the newly opened window to close.
@@ -82,6 +79,7 @@ namespace ViewServices.View
                 throw new InvalidOperationException($"{_windowType} is not a valid window type.");
             }
             window.Owner = _owner;
+            window.WindowStartupLocation = _startupLocation;
 
             return window;
         }

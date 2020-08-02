@@ -25,6 +25,7 @@
             <service:ViewServiceProvider x:Key="ViewServiceProvider" Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
                 <service:WindowService Key="Sub"
                                        Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                       StartupLocation="CenterOwner"
                                        WindowType="{x:Type view:SubWindow}" />
                 <service:MessageBoxService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
                 <service:WindowService Key="CodeBehind"

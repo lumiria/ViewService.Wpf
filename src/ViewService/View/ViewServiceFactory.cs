@@ -11,8 +11,8 @@ namespace ViewServices.View
         public static IWindowActionService CreateWindowAction(Window target) =>
             new WindowActionServiceImpl(target);
 
-        public static IWindowService CreateWindow(Type windowType, Window? owner = null) =>
-            new WindowServiceImpl(windowType, owner);
+        public static IWindowService CreateWindow(Type windowType, Window? owner = null, WindowStartupLocation startupLocation=WindowStartupLocation.Manual) =>
+            new WindowServiceImpl(windowType, owner, startupLocation);
 
         public static IMessageBoxService CreateMessageBox(Window? owner = null) =>
             new MessageBoxServiceImpl(owner);

@@ -31,8 +31,19 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(WindowService), new PropertyMetadata(null));
 
+
+
+        public WindowStartupLocation StartupLocation
+        {
+            get => (WindowStartupLocation)GetValue(StartupLocationProperty);
+            set => SetValue(StartupLocationProperty, value);
+        }
+        public static readonly DependencyProperty StartupLocationProperty =
+            DependencyProperty.Register("StartupLocation", typeof(WindowStartupLocation), typeof(WindowService), new PropertyMetadata(WindowStartupLocation.Manual));
+
+
         internal override IViewService GetService() =>
-            _serviceImpl ??= new WindowServiceImpl(WindowType, Owner);
+            _serviceImpl ??= new WindowServiceImpl(WindowType, Owner, StartupLocation);
 
         protected override Freezable CreateInstanceCore() =>
             new WindowService();
