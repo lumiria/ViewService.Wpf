@@ -82,7 +82,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>DereferenceLinks Dependency Property</summary>
         public static readonly DependencyProperty DereferenceLinksProperty =
-            DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(OpenFileDialog), new PropertyMetadata(null));
+            DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
 
         ///// <summary>
         ///// Gets or sets a string containing the full path of the file selected in a file dialog.

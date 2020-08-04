@@ -18,7 +18,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>Owner Dependency Property</summary>
         public static readonly DependencyProperty OwnerProperty =
-            DependencyProperty.Register("Owner", typeof(Window), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("Owner", typeof(Window), typeof(FolderBrowserDialogService), new PropertyMetadata(null));
 
         public string? Title
         {

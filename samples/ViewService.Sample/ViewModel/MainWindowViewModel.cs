@@ -25,6 +25,37 @@ namespace Sample.ViewModel
                 },
                 _ => true));
 
+        private RelayCommand<IViewServiceProvider> _openFileCommand;
+        public ICommand OpenFileCommand =>
+            _openFileCommand ?? (_openFileCommand = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var service = provider.Get<IOpenFileDialogService>();
+                    service.ShowDialog();
+                },
+                _ => true));
+
+        private RelayCommand<IViewServiceProvider> _saveFileCommand;
+        public ICommand SaveFileCommand =>
+            _saveFileCommand ?? (_saveFileCommand = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var service = provider.Get<ISaveFileDialogService>();
+                    service.ShowDialog();
+                },
+                _ => true));
+
+        private RelayCommand<IViewServiceProvider> _folderBrowserDialog;
+        public ICommand FolderBrowserCommand =>
+            _folderBrowserDialog ?? (_folderBrowserDialog = new RelayCommand<IViewServiceProvider>(
+                provider =>
+                {
+                    var service = provider.Get<IFolderBrowserDialogService>();
+                    service.ShowDialog();
+                },
+                _ => true));
+
+
         private RelayCommand<IViewServiceProvider> _codeBehindWindowCommand;
         public ICommand CodeBehindWindowCommand =>
             _codeBehindWindowCommand ?? (_codeBehindWindowCommand = new RelayCommand<IViewServiceProvider>(

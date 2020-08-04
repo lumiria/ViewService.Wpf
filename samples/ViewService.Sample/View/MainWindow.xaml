@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:Sample.ViewModel"
         Title="MainWindow"
         Width="480"
-        Height="360"
+        Height="480"
         Loaded="Window_Loaded"
         mc:Ignorable="d">
 
@@ -31,6 +31,9 @@
                 <service:WindowService Key="CodeBehind"
                                        Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                        WindowType="{x:Type view:CodeBehindWindow}" />
+                <service:OpenFileDialogService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                <service:SaveFileDialogService Filter="All Files|*.*" Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                <service:FolderBrowserDialogService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
                 <service:MessageBoxService Key="StandardMessageBox"
                                            Caption="Sample"
                                            Image="Information"
@@ -73,6 +76,15 @@
         <Button Command="{Binding MessageBoxCommand}"
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="MessageBox" />
+        <Button Command="{Binding OpenFileCommand}"
+                CommandParameter="{StaticResource ViewServiceProvider}"
+                Content="OpenFileDialog" />
+        <Button Command="{Binding SaveFileCommand}"
+                CommandParameter="{StaticResource ViewServiceProvider}"
+                Content="SaveFileDialog" />
+        <Button Command="{Binding FolderBrowserCommand}"
+                CommandParameter="{StaticResource ViewServiceProvider}"
+                Content="FolderBrowserDialog" />
         <Button Command="{Binding CodeBehindWindowCommand}"
                 CommandParameter="{StaticResource ViewServiceProvider}"
                 Content="CodeBehindWindow" />

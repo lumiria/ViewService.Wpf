@@ -34,7 +34,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>AddExtension Dependency Property</summary>
         public static readonly DependencyProperty AddExtensionProperty =
-            DependencyProperty.Register("AddExtension", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("AddExtension", typeof(bool), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value indicating whether a file dialog displays a warning if the user specifies a file name that does not exist.
@@ -46,7 +46,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>CheckFileExists Dependency Property</summary>
         public static readonly DependencyProperty CheckFileExistsProperty =
-            DependencyProperty.Register("CheckFileExists", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("CheckFileExists", typeof(bool), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value that specifies whether warnings are displayed if the user types invalid paths and file names.
@@ -58,7 +58,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>CheckPathExists Dependency Property</summary>
         public static readonly DependencyProperty CheckPathExistsProperty =
-            DependencyProperty.Register("CheckPathExists", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("CheckPathExists", typeof(bool), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value indicating whether <see cref="SaveFileDialog"/> prompts the user for permmission to create a file if the user specifies a file that does not exist.
@@ -81,7 +81,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>DefaultExt Dependency Property</summary>
         public static readonly DependencyProperty DefaultExtProperty =
-            DependencyProperty.Register("DefaultExt", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("DefaultExt", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value indicating whether a file dialog returns either the location of the file referenced by a shortcut or the location of the shortcut file (.lnk).
@@ -93,7 +93,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>DereferenceLinks Dependency Property</summary>
         public static readonly DependencyProperty DereferenceLinksProperty =
-            DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(OpenFileDialog), new PropertyMetadata(null));
+            DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         ///// <summary>
         ///// Gets or sets a string containing the full path of the file selected in a file dialog.
@@ -105,10 +105,10 @@ namespace ViewServices.View.Xaml
         //}
         ///// <summary>FileName Dependency Property</summary>
         //public static readonly DependencyProperty FileNameProperty =
-        //    DependencyProperty.Register("FileName", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(string.Empty));
+        //    DependencyProperty.Register("FileName", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(string.Empty));
 
         /// <summary>
-        /// Gets or sets the filter string that determines what types of files are displayed from either the OpenFileDialog.
+        /// Gets or sets the filter string that determines what types of files are displayed from either the SaveFileDialog.
         /// </summary>
         public string? Filter
         {
@@ -117,7 +117,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>Filter Dependency Property</summary>
         public static readonly DependencyProperty FilterProperty =
-            DependencyProperty.Register("Filter", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("Filter", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets the index of the filter currently selected in a file dialog.
@@ -129,7 +129,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>FilterIndex Dependency Property</summary>
         public static readonly DependencyProperty FilterIndexProperty =
-            DependencyProperty.Register("FilterIndex", typeof(int), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("FilterIndex", typeof(int), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets the initial directory that is displayed by a file dialog.
@@ -141,7 +141,7 @@ namespace ViewServices.View.Xaml
         }
         /// <summary>InitialDirectory Dependency Property</summary>
         public static readonly DependencyProperty InitialDirectoryProperty =
-            DependencyProperty.Register("InitialDirectory", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("InitialDirectory", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value indicating whether <see cref="SaveFileDialog"/> displays a warning if the user specifies the name of a file that already exists.
@@ -163,7 +163,7 @@ namespace ViewServices.View.Xaml
             set => SetValue(TitleProperty, value);
         }
         public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("Title", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets or sets a value indicating whether the dialog accepts only valid Win32 file names.
@@ -174,7 +174,7 @@ namespace ViewServices.View.Xaml
             set => SetValue(ValidateNamesProperty, value);
         }
         public static readonly DependencyProperty ValidateNamesProperty =
-            DependencyProperty.Register("ValidateNames", typeof(bool?), typeof(OpenFileDialogService), new PropertyMetadata(null));
+            DependencyProperty.Register("ValidateNames", typeof(bool?), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
 
         internal override IViewService GetService() =>
