@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net472</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
     <Authors>lumiria</Authors>
@@ -9,15 +9,15 @@
     <Copyright>© 2019 lumiria</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/lumiria/ViewService.Wpf</PackageProjectUrl>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <AssemblyVersion>1.3.0.1</AssemblyVersion>
+    <FileVersion>1.3.0.1</FileVersion>
     <RootNamespace>ViewServices</RootNamespace>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <PackageId>ViewService.Wpf</PackageId>
     <Product>ViewService.Wpf</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>This provides view services for communicating from the ViewModel to the View.</Description>
-    <PackageTags>wpf, view services</PackageTags>
+    <PackageTags>wpf, view services, mvvm</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

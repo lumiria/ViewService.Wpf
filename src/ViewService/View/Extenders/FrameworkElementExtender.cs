@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace ViewServices.View.Extenders
 {
@@ -12,14 +10,17 @@ namespace ViewServices.View.Extenders
         {
             obj.SetValue(StyleProperty, value);
         }
+        /// <summary>
+        /// Provides bindable Style property.
+        /// </summary>
         public static readonly DependencyProperty StyleProperty =
             DependencyProperty.RegisterAttached("Style", typeof(Style), typeof(FrameworkElementExtender),
                 new PropertyMetadata(null, (d, e) =>
                 {
-                    var control = d as FrameworkElement;
-                    if (control == null || e.NewValue == null) return;
+                    if (d is not FrameworkElement self || e.NewValue == null)
+                        return;
 
-                    control.Style = (Style)e.NewValue;
+                    self.Style = (Style)e.NewValue;
                 }));
     }
 }

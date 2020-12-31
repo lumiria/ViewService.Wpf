@@ -12,3 +12,7 @@ using System.Windows.Markup;
 
 [assembly: XmlnsDefinition("http://schemas.lumiria.com/view-services",
     "ViewServices.View.Xaml")]
+[assembly: XmlnsDefinition("http://schemas.lumiria.com/view-services",
+    "ViewServices.View.Extenders")]
+[assembly: XmlnsDefinition("http://schemas.lumiria.com/view-services",
+    "ViewServices.View.Markups")]

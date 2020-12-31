@@ -9,6 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewService.Sample", "samples\ViewService.Sample\ViewService.Sample.csproj", "{FECA829C-7D0F-4B1F-9C6F-F0EBDC3DF3CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F7C7AAE2-89CE-433B-9B6C-751EA3B9E88C} = {F7C7AAE2-89CE-433B-9B6C-751EA3B9E88C}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewService", "src\ViewService\ViewService.csproj", "{F7C7AAE2-89CE-433B-9B6C-751EA3B9E88C}"
 EndProject
