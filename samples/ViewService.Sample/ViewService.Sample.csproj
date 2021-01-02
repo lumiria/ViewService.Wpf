@@ -71,17 +71,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataTypes\NumberEnum.cs" />
     <Compile Include="Model\SampleModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CodeBehindWindowViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SubWindowViewModel.cs" />
+    <Compile Include="ViewModel\UtilityTestViewModel.cs" />
     <Compile Include="View\CodeBehindWindow.xaml.cs">
       <DependentUpon>CodeBehindWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubWindow.xaml.cs">
       <DependentUpon>SubWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UtilityTestWindow.xaml.cs">
+      <DependentUpon>UtilityTestWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\CodeBehindWindow.xaml">
       <SubType>Designer</SubType>
@@ -104,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UtilityTestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

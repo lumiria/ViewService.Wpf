@@ -54,6 +54,9 @@
                                                     Owner="{service:RelativeAncestorBinding Type={x:Type Window}}"
                                                     StartupLocation="CenterOwner"
                                                     WindowStyle="{StaticResource Theme.WindowStyle}" />
+                <service:WindowService Key="Utility"
+                                       StartupLocation="CenterOwner"
+                                       WindowType="{x:Type view:UtilityTestWindow}" />
             </service:ViewServiceProvider>
 
         </ResourceDictionary>
@@ -91,5 +94,7 @@
         <Button Command="{Binding StandardMessageBoxCommand}" Content="MessageBox" />
         <Button Command="{Binding DefaultStyleableMessageBoxCommand}" Content="StyleableMessageBox(Default)" />
         <Button Command="{Binding StyleableMessageBoxCommand}" Content="StyleableMessageBox" />
+        <Separator />
+        <Button Command="{Binding UtilityTestCommand}" Content="UtilityTest" />
     </StackPanel>
 </Window>

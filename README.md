@@ -92,7 +92,7 @@ service.Close();
 
 * **IStyleableMessagBoxService**
 
-    Display a styleable custom message box.
+    Display a [styleable custom message box](https://github.com/lumiria/ViewService.Wpf/wiki/StyleableMessageBox).
 
 * **IOpenFileDialogService**
 
@@ -103,6 +103,13 @@ service.Close();
     Call [SaveFileDialog](https://docs.microsoft.com/ja-jp/dotnet/api/microsoft.win32.savefiledialog).
 
 * **IFolderBrowserDialogService**
+
+    Display a folder browser dialog.
+
+## Utilities
+Added utility for XAML after version 1.3.0.
+
+Click here for details.
 
 
 ## Note

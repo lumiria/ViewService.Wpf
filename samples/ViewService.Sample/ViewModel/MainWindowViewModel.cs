@@ -95,5 +95,14 @@ namespace Sample.ViewModel
                     service.Show("This is a styleable message box.");
                 },
                 () => true));
+
+        private RelayCommand _utilityTestCommand;
+        public ICommand UtilityTestCommand =>
+            _utilityTestCommand ?? (_utilityTestCommand = new RelayCommand(
+                () =>
+                {
+                    var service = ViewServiceProvider.Get<IWindowService>("Utility");
+                    service.Show();
+                }));
     }
 }
