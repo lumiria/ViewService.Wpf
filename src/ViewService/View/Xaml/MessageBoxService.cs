@@ -8,6 +8,7 @@ namespace ViewServices.View.Xaml
     /// Represents a view service for displaying a message box.
     /// </summary>
     public sealed class MessageBoxService : FreezableViewService<IMessageBoxService>
+        , IOwnerRequirement
     {
         private IMessageBoxService? _serviceImpl;
 
@@ -23,6 +24,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(MessageBoxService), new PropertyMetadata(null));
 
+        /// <summary>
+        /// Gets or sets a string that specifies the title bar caption to display.
+        /// </summary>
         public string Caption
         {
             get => (string)GetValue(CaptionProperty);
@@ -31,6 +35,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty CaptionProperty =
             DependencyProperty.Register("Caption", typeof(string), typeof(MessageBoxService), new PropertyMetadata(""));
 
+        /// <summary>
+        /// Gets or sets a <see cref="MessageBoxImage"/> value that specifies the icon to display.
+        /// </summary>
         public MessageBoxImage Image
         {
             get => (MessageBoxImage)GetValue(ImageProperty);
@@ -39,6 +46,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty ImageProperty =
             DependencyProperty.Register("Image", typeof(MessageBoxImage), typeof(MessageBoxService), new PropertyMetadata(MessageBoxImage.None));
 
+        /// <summary>
+        /// Gets or sets a string that specifies the text to display.
+        /// </summary>
         public string Text
         {
             get => (string)GetValue(TextProperty);
@@ -48,7 +58,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("Text", typeof(string), typeof(MessageBoxService), new PropertyMetadata(""));
 
 
-
+        /// <summary>
+        /// Gets or sets a <see cref="MessageBoxButton"/> value that specifies which button or buttons to display.
+        /// </summary>
         public MessageBoxButton Button
         {
             get => (MessageBoxButton)GetValue(ButtonProperty);

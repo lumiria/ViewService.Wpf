@@ -4,7 +4,11 @@ using System.Windows;
 
 namespace ViewServices.View.Xaml
 {
+    /// <summary>
+    /// Provides a service of the <see cref="Components.FolderBrowserDialog"/>
+    /// </summary>
     public sealed class FolderBrowserDialogService : FreezableViewService<IFolderBrowserDialogService>
+        , IOwnerRequirement
     {
         private IFolderBrowserDialogService? _serviceImpl;
 
@@ -20,6 +24,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty OwnerProperty =
             DependencyProperty.Register("Owner", typeof(Window), typeof(FolderBrowserDialogService), new PropertyMetadata(null));
 
+        /// <summary>
+        /// Gets or sets the text that appears in the title bar of a folder browser dialog.
+        /// </summary>
         public string? Title
         {
             get => (string?)GetValue(TitleProperty);

@@ -9,6 +9,7 @@ namespace ViewServices.View.Xaml
     /// Represents a service that provides a common dialog that allows the user to specify a filename to save a file as.
     /// </summary>
     public sealed class SaveFileDialogService : FreezableViewService<ISaveFileDialogService>
+        , IOwnerRequirement
     {
         private ISaveFileDialogService? _serviceImpl;
 
@@ -95,17 +96,6 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty DereferenceLinksProperty =
             DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(SaveFileDialogService), new PropertyMetadata(null));
 
-        ///// <summary>
-        ///// Gets or sets a string containing the full path of the file selected in a file dialog.
-        ///// </summary>
-        //public string FileName
-        //{
-        //    get => (string)GetValue(FileNameProperty);
-        //    set => SetValue(FileNameProperty, value);
-        //}
-        ///// <summary>FileName Dependency Property</summary>
-        //public static readonly DependencyProperty FileNameProperty =
-        //    DependencyProperty.Register("FileName", typeof(string), typeof(SaveFileDialogService), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets the filter string that determines what types of files are displayed from either the SaveFileDialog.

@@ -54,6 +54,11 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty ServicesProperty =
             ServicesPropertyKey.DependencyProperty;
 
+        /// <summary>
+        /// Gets a value that indicates whether the owner window is automatically set for each service.
+        /// </summary>
+        public bool AutoOwnerSet { get; set; }
+
         
         /// <summary>
         /// Gets the service object of the specified type.
@@ -72,6 +77,12 @@ namespace ViewServices.View.Xaml
                 throw new ArgumentException("The key does not exist in the view services.");
             }
 
+            if (AutoOwnerSet && Owner != null
+                && service is IOwnerRequirement ownerRequirement
+                && ownerRequirement.Owner == null)
+            {
+                ownerRequirement.Owner = Owner;
+            }
             return (T)service.GetService();
         }
 

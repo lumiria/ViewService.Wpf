@@ -23,18 +23,17 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!--  Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"  -->
-            <service:ViewServiceProvider x:Key="ViewServiceProvider" Owner="{service:RelativeAncestorBinding Type={x:Type Window}}">
+            <service:ViewServiceProvider x:Key="ViewServiceProvider"
+                                         AutoOwnerSet="True"
+                                         Owner="{service:RelativeAncestorBinding Type={x:Type Window}}">
                 <service:WindowService Key="Sub"
-                                       Owner="{service:RelativeAncestorBinding Type={x:Type Window}}"
                                        StartupLocation="CenterOwner"
                                        WindowType="{x:Type view:SubWindow}" />
-                <service:MessageBoxService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
-                <service:WindowService Key="CodeBehind"
-                                       Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                                       WindowType="{x:Type view:CodeBehindWindow}" />
-                <service:OpenFileDialogService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
-                <service:SaveFileDialogService Filter="All Files|*.*" Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
-                <service:FolderBrowserDialogService Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                <service:MessageBoxService />
+                <service:WindowService Key="CodeBehind" WindowType="{x:Type view:CodeBehindWindow}" />
+                <service:OpenFileDialogService />
+                <service:SaveFileDialogService Filter="All Files|*.*" />
+                <service:FolderBrowserDialogService />
                 <service:MessageBoxService Key="StandardMessageBox"
                                            Caption="Sample"
                                            Image="Information"
@@ -43,7 +42,6 @@
                                                     Caption="Sample"
                                                     Image="Information"
                                                     InstructionText="Styleable MessagBox"
-                                                    Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
                                                     StartupLocation="CenterOwner" />
                 <service:StyleableMessageBoxService Key="StyleableMessageBox"
                                                     ButtonTemplate="{StaticResource Theme.ButtonTemplate}"
@@ -53,7 +51,7 @@
                                                     Image="Information"
                                                     InstructionText="Styleable MessagBox"
                                                     InstructionTextStyle="{StaticResource Theme.InstructionTextStyle}"
-                                                    Owner="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                                                    Owner="{service:RelativeAncestorBinding Type={x:Type Window}}"
                                                     StartupLocation="CenterOwner"
                                                     WindowStyle="{StaticResource Theme.WindowStyle}" />
             </service:ViewServiceProvider>

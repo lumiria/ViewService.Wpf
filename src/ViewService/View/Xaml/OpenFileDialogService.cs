@@ -9,6 +9,7 @@ namespace ViewServices.View.Xaml
     /// Represents a service that provides a common dialog box that allows a user to specify a filename for one or more files to open.
     /// </summary>
     public sealed class OpenFileDialogService : FreezableViewService<IOpenFileDialogService>
+        , IOwnerRequirement
     {
         private IOpenFileDialogService? _serviceImpl;
 
@@ -84,18 +85,6 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty DereferenceLinksProperty =
             DependencyProperty.Register("DereferenceLinks", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
 
-        ///// <summary>
-        ///// Gets or sets a string containing the full path of the file selected in a file dialog.
-        ///// </summary>
-        //public string FileName
-        //{
-        //    get => (string)GetValue(FileNameProperty);
-        //    set => SetValue(FileNameProperty, value);
-        //}
-        ///// <summary>FileName Dependency Property</summary>
-        //public static readonly DependencyProperty FileNameProperty =
-        //    DependencyProperty.Register("FileName", typeof(string), typeof(OpenFileDialogService), new PropertyMetadata(string.Empty));
-
         /// <summary>
         /// Gets or sets the filter string that determines what types of files are displayed from either the OpenFileDialog.
         /// </summary>
@@ -165,6 +154,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty ShowReadOnlyProperty =
             DependencyProperty.Register("ShowReadOnly", typeof(bool), typeof(OpenFileDialogService), new PropertyMetadata(null));
 
+        /// <summary>
+        /// Gets or sets a string that specifies the text to display.
+        /// </summary>
         public string? Title
         {
             get => (string?)GetValue(TitleProperty);

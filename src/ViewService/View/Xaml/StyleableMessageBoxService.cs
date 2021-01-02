@@ -2,11 +2,14 @@
 
 using System.Windows;
 using System.Windows.Controls;
-using ViewServices.View.Components;
 
 namespace ViewServices.View.Xaml
 {
+    /// <summary>
+    /// Provides a service of the <see cref="Components.StyleableMessageBox"/>
+    /// </summary>
     public sealed class StyleableMessageBoxService : FreezableViewService<IStyleableMessageBoxService>
+        , IOwnerRequirement
     {
         private IStyleableMessageBoxService? _serviceImpl;
 
@@ -23,7 +26,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("Owner", typeof(Window), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
-
+        /// <summary>
+        /// Gets or sets the position of the window when first shown.
+        /// </summary>
         public WindowStartupLocation StartupLocation
         {
             get => (WindowStartupLocation)GetValue(StartupLocationProperty);
@@ -33,7 +38,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("StartupLocation", typeof(WindowStartupLocation), typeof(StyleableMessageBoxService), new PropertyMetadata(WindowStartupLocation.CenterScreen));
 
 
-
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the window.
+        /// </summary>
         public Style? WindowStyle
         {
             get => (Style?)GetValue(WindowStyleProperty);
@@ -42,7 +49,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty WindowStyleProperty =
             DependencyProperty.Register("WindowStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
-
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the footer element.
+        /// </summary>
 
         public Style? FooterPaneStyle
         {
@@ -53,7 +62,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("FooterPaneStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
-
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the instruction text element.
+        /// </summary>
         public Style? InstructionTextStyle
         {
             get => (Style?)GetValue(InstructionTextStyleProperty);
@@ -61,6 +72,10 @@ namespace ViewServices.View.Xaml
         }
         public static readonly DependencyProperty InstructionTextStyleProperty =
             DependencyProperty.Register("InstructionTextStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the text element.
+        /// </summary>
 
         public Style? TextStyle
         {
@@ -70,6 +85,10 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty TextStyleProperty =
             DependencyProperty.Register("TextStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
+
+        /// <summary>
+        /// Gets or sets a button control template.
+        /// </summary>
         public ControlTemplate? ButtonTemplate
         {
             get => (ControlTemplate?)GetValue(ButtonTemplateProperty);
@@ -78,6 +97,10 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty ButtonTemplateProperty =
             DependencyProperty.Register("ButtonTemplate", typeof(ControlTemplate), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
+
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the button element.
+        /// </summary>
         public Style? ButtonStyle
         {
             get => (Style?)GetValue(ButtonStyleProperty);
@@ -87,6 +110,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("ButtonStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
+        /// <summary>
+        /// Gets or sets a <see cref="Style"/> that is applied the image element.
+        /// </summary>
         public Style? ImageStyle
         {
             get => (Style?)GetValue(ImageStyleProperty);
@@ -96,7 +122,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("ImageStyle", typeof(Style), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
-
+        /// <summary>
+        /// Gets or sets a <see cref="DataTemplate"/> that specifies the visualization of the data object for the caption bar.
+        /// </summary>
         public DataTemplate? CaptionPaneTemplate
         {
             get => (DataTemplate?)GetValue(CaptionPaneTemplateProperty);
@@ -106,6 +134,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("CaptionPaneTemplate", typeof(DataTemplate), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
+        /// <summary>
+        /// Gets or sets a string that the title bar caption to display.
+        /// </summary>
         public string? Caption
         {
             get => (string?)GetValue(CaptionProperty);
@@ -114,6 +145,9 @@ namespace ViewServices.View.Xaml
         public static readonly DependencyProperty CaptionProperty =
             DependencyProperty.Register("Caption", typeof(string), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
+        /// <summary>
+        /// Gets or sets a <see cref="MessageBoxImage"/> value that specifies the icon to display.
+        /// </summary>
         public MessageBoxImage Image
         {
             get => (MessageBoxImage)GetValue(ImageProperty);
@@ -123,6 +157,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("Image", typeof(MessageBoxImage), typeof(StyleableMessageBoxService), new PropertyMetadata(MessageBoxImage.None));
 
 
+        /// <summary>
+        /// Gets or sets a string that specifies the instruction text to display.
+        /// </summary>
         public string? InstructionText
         {
             get => (string?)GetValue(InstructionTextProperty);
@@ -132,7 +169,9 @@ namespace ViewServices.View.Xaml
             DependencyProperty.Register("InstructionText", typeof(string), typeof(StyleableMessageBoxService), new PropertyMetadata(null));
 
 
-
+        /// <summary>
+        /// Gets or sets a string that specifies the text to display.
+        /// </summary>
         public string? Text
         {
             get => (string?)GetValue(TextProperty);
