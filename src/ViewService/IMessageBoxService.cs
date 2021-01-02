@@ -7,12 +7,24 @@ namespace ViewServices
     /// </summary>
     public interface IMessageBoxService : IViewService
     {
+        /// <summary>
+        /// Gets or sets a string that specifies the title bar caption to display.
+        /// </summary>
         string Caption { get; set; }
 
+        /// <summary>
+        /// Gets or sets a <see cref="MessageBoxImage"/> value that specifies the icon to display.
+        /// </summary>
         MessageBoxImage Image { get; set; }
 
+        /// <summary>
+        /// Gets or sets a string that specifies the text to display.
+        /// </summary>
         string Text { get; set; }
 
+        /// <summary>
+        /// Gets or sets a <see cref="MessageBoxButton"/> value that specifies which button or buttons to display.
+        /// </summary>
         MessageBoxButton Button { get; set; }
 
         /// <summary>

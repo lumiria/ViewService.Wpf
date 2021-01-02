@@ -9,15 +9,31 @@ using ViewServices.Components;
 
 namespace ViewServices.View.Components
 {
+    /// <summary>
+    /// Represents a common dialog box that allows a user to specify a foldername.
+    /// </summary>
     public sealed class FolderBrowserDialog
     {
+        /// <summary>
+        /// Gets or sets the initial folder path.
+        /// </summary>
         public string FolderPath { get; set; }
 
+        /// <summary>
+        /// Gets or sets the text that appears in the title bar of a folder browser dialog.
+        /// </summary>
         public string Title { get; set; }
 
+        /// <summary>
+        /// Opens a folder browser dialog and returns only when the newly opened window is closed.
+        /// </summary>
         public DialogResult ShowDialog() =>
             ShowDialog(IntPtr.Zero);
 
+        /// <summary>
+        /// Opens a folder browser dialog and returns only when the newly opened window is closed.
+        /// </summary>
+        /// <see cref="owner">A <see cref="Window"/> object that represents the top-level window that will own the folder browser dialog.</see>
         public DialogResult ShowDialog(Window owner)
         {
             var handle = new WindowInteropHelper(owner).Handle;
@@ -180,8 +196,6 @@ namespace ViewServices.View.Components
             [DllImport("shell32.dll")]
             public static extern int SHCreateShellItem(
                 IntPtr pidParent, IntPtr psfParent, IntPtr pidl, out IShellItem ppsi);
-
-
         }
     }
 }
