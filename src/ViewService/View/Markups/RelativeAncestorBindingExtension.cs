@@ -56,7 +56,6 @@ namespace ViewServices.View.Markups
                     Type,
                     Level)
             };
-            //BindingOperations.SetBinding(target, property, binding);
             return binding.ProvideValue(serviceProvider);
         }
     }

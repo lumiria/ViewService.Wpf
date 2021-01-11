@@ -19,7 +19,7 @@ Add the view services you want to use from ViewModel to ViewServiceProvider cont
 Implements the services to be used by the code-behind of View or define it in XAML resource.
 
 ### For XAML
-```markup
+```xml
 <Window xmlns:service="http://schemas.lumiria.com/view-services">
     <Window.Resources>
         <ResourceDictionary>
@@ -109,7 +109,7 @@ service.Close();
 ## Utilities
 Added utility for XAML after version 1.3.0.
 
-Click here for details.
+Click [here](https://github.com/lumiria/ViewService.Wpf/wiki) for details.
 
 
 ## Note
